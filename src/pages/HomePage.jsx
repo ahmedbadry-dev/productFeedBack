@@ -1,5 +1,6 @@
 import Button from '../components/Button'
 import FeedbackList from '../components/FeedbackList'
+import FeedbackModal from '../components/FeedbackModal'
 import Sidebar from '../components/Sidebar'
 import React from 'react'
 
@@ -38,6 +39,8 @@ const HomePage = () => {
                     <FeedbackList />
                 </div>
             </div>
+
+            <FeedbackModal />
         </div>
     )
 }
