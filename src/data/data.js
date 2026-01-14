@@ -47,7 +47,7 @@ export const initialSuggestions = [
         comments: 5,
         category: "Feature",
         upvoted: false,
-        status: "Planned",
+        status: "Live",
     }
 ];
 

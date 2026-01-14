@@ -16,8 +16,14 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<RootLayout />}>
       <Route index element={<HomePage />} />
+
+      <Route path='feedback/:id' element={<DetailPage />} />
+      <Route path='feedback/:id/edit' element={<DetailPage />} />
+
+      {/** same page shows edit modal based on route */}
       <Route path='roadmap' element={<RoadmapPage />} />
-      <Route path='detail' element={<DetailPage />} />
+      <Route path='add' element={<HomePage />} />
+      <Route path='*' element={<HomePage />} />
     </Route>
   ),
   {

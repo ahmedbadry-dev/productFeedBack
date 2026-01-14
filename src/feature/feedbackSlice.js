@@ -6,12 +6,32 @@ const initialState = {
     comments: initialComments
 }
 
+// id: 1,
+// title: "Add tags for solutions",
+// description: "Easier to search for solutions based on a specific stack.",
+// upvotes: 112,
+// comments: 2,
+// category: "Enhancement",
+// upvoted: false,
+// status: "Planned",
+
 const feedbackSlice = createSlice({
     name: 'feedback',
     initialState,
     reducers: {
         addSuggestion: (state, action) => {
-            state.suggestions.push(action.payload)
+            const { title, description, category, status } = action.payload
+            const newSuggestion = {
+                id: crypto.randomUUID(),
+                title,
+                description,
+                category: category || 'Feature',
+                status: status || 'Planned',
+                upvotes: 0,
+                comments: 0,
+                upvoted: false
+            }
+            state.suggestions.push(newSuggestion)
         },
         updateSuggestion: (state, action) => {
             const { id } = action.payload
