@@ -34,7 +34,7 @@ const HomePage = () => {
     const closeModel = () => navigate(-1) // gp back to previous route
 
     const handleAdd = (payload) => {
-        dispatch(addSuggestion)
+        dispatch(addSuggestion(payload))
         closeModel();
     }
 
@@ -93,7 +93,12 @@ const HomePage = () => {
                     />
                 </div>
             </div>
-            {/*<FeedbackModal />*/}
+            <FeedbackModal
+                isOpen={modelOpen}
+                onClose={closeModel}
+                onAdd={handleAdd}
+                editingFeedback={null}
+            />
         </div>
     )
 }

@@ -20,18 +20,20 @@ const feedbackSlice = createSlice({
     initialState,
     reducers: {
         addSuggestion: (state, action) => {
-            const { title, description, category, status } = action.payload
-            const newSuggestion = {
-                id: crypto.randomUUID(),
-                title,
-                description,
-                category: category || 'Feature',
-                status: status || 'Planned',
-                upvotes: 0,
-                comments: 0,
-                upvoted: false
-            }
-            state.suggestions.push(newSuggestion)
+            // const { title, description, category, status } = action.payload
+            // const newSuggestion = {
+            //     id: crypto.randomUUID(),
+            //     title,
+            //     description,
+            //     category: category || 'Feature',
+            //     status: status || 'Planned',
+            //     upvotes: 0,
+            //     comments: 0,
+            //     upvoted: false
+            // }
+            state.suggestions.push(action.payload)
+            console.log('suu adding');
+
         },
         updateSuggestion: (state, action) => {
             const { id } = action.payload
