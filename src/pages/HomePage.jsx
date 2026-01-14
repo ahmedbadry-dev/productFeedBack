@@ -39,8 +39,7 @@ const HomePage = () => {
                     <FeedbackList />
                 </div>
             </div>
-
-            <FeedbackModal />
+            {/*<FeedbackModal />*/}
         </div>
     )
 }
