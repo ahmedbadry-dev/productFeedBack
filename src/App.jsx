@@ -1,6 +1,6 @@
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom'
-
-
+import store from './store/store'
+import { Provider } from 'react-redux'
 // pages
 import HomePage from './pages/HomePage'
 import DetailPage from './pages/DetailPage'
@@ -29,7 +29,9 @@ const router = createBrowserRouter(
 
 const App = () => {
   return (
-    <RouterProvider router={router} />
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
   )
 }
 

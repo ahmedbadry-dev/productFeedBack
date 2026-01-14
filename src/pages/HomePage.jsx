@@ -2,9 +2,12 @@ import Button from '../components/Button'
 import FeedbackList from '../components/FeedbackList'
 import FeedbackModal from '../components/FeedbackModal'
 import Sidebar from '../components/Sidebar'
-import React from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 
 const HomePage = () => {
+    const state = useSelector(state => state.feedback)
+    console.log(state);
+
     return (
         <div className='max-w-6xl mx-auto'>
             <div className='grid grid-cols-1 lg:grid-cols-4 gap-6'>
