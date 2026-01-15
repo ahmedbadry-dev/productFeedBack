@@ -31,7 +31,7 @@ const HomePage = () => {
 
     // handles 
     const openModel = () => navigate('/add')
-    const closeModel = () => navigate(-1) // gp back to previous route
+    const closeModel = () => navigate('/', { replace: true }) // gp back to previous route
 
     const handleAdd = (payload) => {
         dispatch(addSuggestion(payload))
@@ -43,7 +43,7 @@ const HomePage = () => {
     }
 
     const handleView = (item) => {
-        navigate(`feedback/${item.id}`)
+        navigate(`/feedback/${item.id}`, { replace: true })
     }
     return (
         <div className='max-w-6xl mx-auto'>
@@ -52,7 +52,7 @@ const HomePage = () => {
                     filterCategory={filterCategory}
                     setFilterCategory={setFilterCategory}
                     roadmapCounts={roadmapCounts}
-                    openRoadmap={() => navigate('roadmap')}
+                    openRoadmap={() => navigate('/roadmap')}
                     openModel={openModel}
                 />
 
@@ -93,12 +93,15 @@ const HomePage = () => {
                     />
                 </div>
             </div>
-            <FeedbackModal
-                isOpen={modelOpen}
-                onClose={closeModel}
-                onAdd={handleAdd}
-                editingFeedback={null}
-            />
+            {
+                modelOpen && (
+                    <FeedbackModal
+                        onClose={closeModel}
+                        onAdd={handleAdd}
+                        editingFeedback={null}
+                    />
+                )
+            }
         </div>
     )
 }

@@ -1,7 +1,8 @@
 import React, { Fragment } from 'react'
 import { useFormStatus } from 'react-dom';
 
-const Submit = ({ onClose }) => {
+const Submit = ({ onClose, editingFeedback, onDelete }) => {
+    console.log(editingFeedback, editingFeedback.id);
 
     const { pending } = useFormStatus();
 
@@ -9,14 +10,17 @@ const Submit = ({ onClose }) => {
         <Fragment>
 
             <div className='flex gap-4 mt-4'>
-                <button
-                    className='flex-1 bg-red-600 hover:bg-red-700
+                {
+                    editingFeedback &&
+                    <button
+                        className='flex-1 bg-red-600 hover:bg-red-700
                             text-white py-3 rounded-lg font-semibold transition-all'
-
-                    disabled={pending}
-                >
-                    {pending ? "Deleting..." : "Delete"}
-                </button>
+                        onClick={() => onDelete(editingFeedback.id)}
+                        disabled={pending}
+                    >
+                        {pending ? "Deleting..." : "Delete"}
+                    </button>
+                }
 
                 <button
                     className='flex-1 bg-gray-600 hover:bg-gray-700
@@ -33,7 +37,9 @@ const Submit = ({ onClose }) => {
                     type='submit'
                     disabled={pending}
                 >
-                    {pending ? "Adding..." : "+ Add Feedback"}
+                    {pending && !editingFeedback && 'Adding...'}
+                    {pending && editingFeedback && 'Saving...'}
+                    {editingFeedback ? 'Save Change' : 'Add Feedback'}
                 </button>
             </div>
 

@@ -1,9 +1,13 @@
 import { X } from 'lucide-react'
 import Submit from './Submit';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { deleteSuggestion } from '../feature/feedbackSlice';
+import { useNavigate } from 'react-router-dom';
 
-const FeedbackModal = ({ isOpen, onClose, onAdd, editingFeedback }) => {
-
+const FeedbackModal = ({ onClose, onAdd, onUpdate, editingFeedback }) => {
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
     const [formData, setFormData] = useState({
         title: '',
         description: '',
@@ -19,25 +23,52 @@ const FeedbackModal = ({ isOpen, onClose, onAdd, editingFeedback }) => {
         }))
     }
 
-    // useEffect()
+    useEffect(() => {
+        if (editingFeedback) {
+            setFormData({
+                title: editingFeedback.title || '',
+                description: editingFeedback.description || '',
+                category: editingFeedback.category || 'Feature',
+                status: editingFeedback.status || 'Planned',
+            })
+        } else {
+            setFormData({
+                title: '',
+                description: '',
+                category: 'Feature',
+                status: 'Planned',
+            })
+        }
+    }, [editingFeedback])
 
-    if (!isOpen) return null
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        const newSuggestion = {
-            id: crypto.randomUUID(),
-            title: formData.title,
-            description: formData.description,
-            category: formData.category || 'Feature',
-            status: formData.status || 'Planned',
-            upvotes: 0,
-            comments: 0,
-            upvoted: false
+        if (editingFeedback) {
+            onUpdate && onUpdate({ ...editingFeedback, ...formData })
+        } else {
+            const newSuggestion = {
+                id: crypto.randomUUID(),
+                title: formData.title,
+                description: formData.description,
+                category: formData.category || 'Feature',
+                status: formData.status || 'Planned',
+                upvotes: 0,
+                comments: 0,
+                upvoted: false
+            }
+            onAdd && onAdd(newSuggestion)
         }
-
-        onAdd(newSuggestion)
         onClose()
+    }
+
+    const handleDelete = () => {
+        if (!editingFeedback) return
+
+        if (window.confirm('Are you sure?')) {
+            dispatch(deleteSuggestion({ id: editingFeedback.id }))
+            navigate('/', { replace: true })
+        }
     }
 
     return (
@@ -128,7 +159,38 @@ const FeedbackModal = ({ isOpen, onClose, onAdd, editingFeedback }) => {
                         />
                     </div>
 
-                    <Submit onClose={onClose} />
+                    <div className='flex gap-4 mt-4'>
+                        {
+                            editingFeedback &&
+                            <button
+                                className='flex-1 bg-red-600 hover:bg-red-700
+                            text-white py-3 rounded-lg font-semibold transition-all'
+                                onClick={handleDelete}
+
+                            >
+                                Delete
+                            </button>
+                        }
+
+                        <button
+                            className='flex-1 bg-gray-600 hover:bg-gray-700
+                            text-white py-3 rounded-lg font-semibold transition-all'
+
+                            onClick={onClose}
+                        >
+                            Cancel
+                        </button>
+
+                        <button
+                            className='flex-2 sm:flex-1 bg-purple-600 hover:bg-purple-700
+                            text-white py-3 rounded-lg font-semibold transition-all'
+                            type='submit'
+
+                        >
+
+                            {editingFeedback ? 'Save Change' : 'Add Feedback'}
+                        </button>
+                    </div>
                 </form>
             </div>
         </div>

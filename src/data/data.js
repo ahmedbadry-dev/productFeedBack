@@ -1,6 +1,6 @@
 export const initialSuggestions = [
     {
-        id: 1,
+        id: '1',
         title: "Add tags for solutions",
         description: "Easier to search for solutions based on a specific stack.",
         upvotes: 112,
@@ -10,7 +10,7 @@ export const initialSuggestions = [
         status: "Planned",
     },
     {
-        id: 2,
+        id: '2',
         title: "Add a dark theme option",
         description: "It would help people with light sensitivities and who prefer dark mode.",
         upvotes: 99,
@@ -20,7 +20,7 @@ export const initialSuggestions = [
         status: "In-Progress",
     },
     {
-        id: 3,
+        id: '3',
         title: "Improve mobile responsiveness",
         description: "Make sure the website layout looks good on all mobile devices.",
         upvotes: 45,
@@ -30,7 +30,7 @@ export const initialSuggestions = [
         status: "Planned",
     },
     {
-        id: 4,
+        id: '4',
         title: "Add sorting options for feedback",
         description: "Users should be able to sort feedback by most upvotes, comments, or status.",
         upvotes: 67,
@@ -40,7 +40,7 @@ export const initialSuggestions = [
         status: "In-Progress",
     },
     {
-        id: 5,
+        id: '5',
         title: "Allow image attachments in comments",
         description: "Users want to add images in comments to explain their feedback better.",
         upvotes: 89,
@@ -55,7 +55,7 @@ export const initialSuggestions = [
 export const initialComments = {
     1: [
         {
-            id: 1,
+            id: '1',
             name: "Anna Kim",
             username: "anna_k",
             avatar: "https://i.pravatar.cc/150?img=1",
@@ -63,7 +63,7 @@ export const initialComments = {
             date: "2026-01-14T10:00:00Z"
         },
         {
-            id: 2,
+            id: '2',
             name: "John Doe",
             username: "john_d",
             avatar: "https://i.pravatar.cc/150?img=2",
@@ -73,7 +73,7 @@ export const initialComments = {
     ],
     2: [
         {
-            id: 1,
+            id: '1',
             name: "Sara Lee",
             username: "sara_lee",
             avatar: "https://i.pravatar.cc/150?img=3",
@@ -81,7 +81,7 @@ export const initialComments = {
             date: "2026-01-14T09:30:00Z"
         },
         {
-            id: 2,
+            id: '2',
             name: "Mike Brown",
             username: "mike_b",
             avatar: "https://i.pravatar.cc/150?img=4",
@@ -91,7 +91,7 @@ export const initialComments = {
     ],
     3: [
         {
-            id: 1,
+            id: '1',
             name: "Emily Clark",
             username: "emily_c",
             avatar: "https://i.pravatar.cc/150?img=5",
@@ -101,7 +101,7 @@ export const initialComments = {
     ],
     4: [
         {
-            id: 1,
+            id: '1',
             name: "David Wilson",
             username: "david_w",
             avatar: "https://i.pravatar.cc/150?img=6",
@@ -111,7 +111,7 @@ export const initialComments = {
     ],
     5: [
         {
-            id: 1,
+            id: '1',
             name: "Laura Scott",
             username: "laura_s",
             avatar: "https://i.pravatar.cc/150?img=7",
@@ -119,7 +119,7 @@ export const initialComments = {
             date: "2026-01-14T13:00:00Z"
         },
         {
-            id: 2,
+            id: '2',
             name: "David Wilson",
             username: "david_w",
             avatar: "https://i.pravatar.cc/150?img=6",
