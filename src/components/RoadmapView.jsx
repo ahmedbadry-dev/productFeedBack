@@ -22,16 +22,16 @@ const RoadmapView = ({ suggestions, onUpvote, onView, openAdd, onBack }) => {
     return (
         <div className='max-w-6xl mx-auto'>
             <div className='bg-gray-800 rounded-xl p-4 flex items-center justify-between mb-6'>
-                <div className='flex items-center gap-4'>
+                <div className='flex items-center  sm:gap-4'>
                     <button
-                        className='flex items-center gap-2 text-white hover:text-gray-300 font-semibold'
+                        className='flex items-center gap-2 text-sm sm:text-[16px]  text-white hover:text-gray-300 font-semibold'
                         onClick={onBack}
                     >
                         <ArrowLeft size={20} />
-                        Go Back
+                        <span className='hidden sm:block'>Go Back</span>
                     </button>
                     <div className='ml-4'>
-                        <h1 className='text-white font-bold text-xl'>Roadmap</h1>
+                        <h1 className='text-white font-bold  sm:text-xl'>Roadmap</h1>
                     </div>
                 </div>
                 <button

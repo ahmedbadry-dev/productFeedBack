@@ -23,7 +23,7 @@ const FeedbackItem = ({ suggestion, onUpvote, onView }) => {
                 </button>
 
                 <div className='flex-1'>
-                    <h3 className='font-bold text-gray-800 text-lg mb-1
+                    <h3 className='font-bold text-gray-800   mb-1
                     hover:text-blue-600 transition-all'>
                         {suggestion.title}
                     </h3>

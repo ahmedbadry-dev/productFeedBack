@@ -1,25 +1,14 @@
 import { ArrowLeft, ChevronUp, MessagesSquare } from 'lucide-react'
-import React, { useState } from 'react'
-import { data } from 'react-router-dom'
+import AddComment from './AddComment'
 
-const DetailView = ({ feedback, comments, onBack, onUpvote, onOpenEdit, onAddComment }) => {
-
-    const [newComment, setNewComment] = useState('')
-
-    const handlePost = () => {
-        if (!newComment.trim()) return
-        const comment = {
-            id: crypto.randomUUID(),
-            name: 'current user',
-            username: '@currentUser',
-            avatar: 'https://i.pravatar.cc/150?img=1',
-            text: newComment,
-            data: 'just now'
-        }
-
-        onAddComment(feedback.id, comment)
-        setNewComment('')
-    }
+const DetailView = ({
+    feedback,
+    comments,
+    onBack,
+    onUpvote,
+    onOpenEdit,
+    onAddComment
+}) => {
 
     return (
         <div className='max-w-3xl mx-auto space-y-6'>
@@ -46,7 +35,7 @@ const DetailView = ({ feedback, comments, onBack, onUpvote, onOpenEdit, onAddCom
                         className={`flex flex-col items-center gap-1 rounded-lg px-3 py-2 transition-all
                             ${feedback.upvoted ? "bg-blue-600 text-white" : "bg-gray-100 hover:bg-blue-100 text-gray-800"}
                         `}
-                        onClick={() => onUpvote({ id: feedback.id })}
+                        onClick={() => onUpvote(feedback.id)}
                     >
                         <ChevronUp size={16} />
                         <span className='font-bold text-sm'>{feedback.upvotes}</span>
@@ -103,30 +92,7 @@ const DetailView = ({ feedback, comments, onBack, onUpvote, onOpenEdit, onAddCom
 
 
 
-            <div className='bg-white rounded-xl p-6'>
-                <h3 className='font-bold text-gray-800 text-lg mb-4'>Add Comment</h3>
-                <textarea name=""
-                    className='w-full border border-gray-200 rounded-lg p-4 text-gray-700 resize-none
-                        focus:outline-none focus:ring-2 focus:ring-blue-500'
-                    rows={4}
-                    maxLength={250}
-                    value={newComment}
-                    onChange={(e) => setNewComment(e.target.value)}
-                    placeholder='Type your comment here..'
-                />
-                <div className='flex justify-between items-center mt-4'>
-                    <span className='text-gray-500 text-sm'>{250 - newComment.length} Character Left</span>
-                    <button
-                        className='bg-purple-600 hover:bg-purple-700
-                        disabled:bg-gray-400 disabled:cursor-not-allowed text-white px-6 py-2
-                        rounded-lg font-semibold transition-all'
-                        onClick={handlePost}
-                        disabled={!newComment.trim()}
-                    >
-                        Post Comment
-                    </button>
-                </div>
-            </div>
+            <AddComment onAdd={onAddComment} />
 
         </div>
     )

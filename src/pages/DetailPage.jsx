@@ -4,6 +4,7 @@ import { Navigate, useLocation, useNavigate, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import {
     addComments,
+    deleteSuggestion,
     toggleUpvote,
     updateSuggestion
 } from '../feature/feedbackSlice'
@@ -15,31 +16,45 @@ const DetailPage = () => {
     const location = useLocation()
     const dispatch = useDispatch()
 
-    const { suggestions, comments } = useSelector(state => state.feedback)
+    const { suggestions, comments } = useSelector(
+        state => state.feedback
+    )
 
+    // 🔹 memoized selector
     const feedback = useMemo(
         () => suggestions.find(s => s.id === id),
         [suggestions, id]
     )
 
-    // ✅ protect route after delete / invalid id
+    // 🔒 protect route (invalid id / deleted feedback)
     if (!feedback) {
         return <Navigate to="/" replace />
     }
 
+    // 🔹 modal controlled by route only
     const isEditRoute = location.pathname.endsWith('/edit')
 
-    const handleUpvote = (id) => {
-        dispatch(toggleUpvote(id))
+    // handlers
+    const handleUpvote = () => {
+        dispatch(toggleUpvote({ id: feedback.id }))
     }
 
-    const handleAddComments = (id, comment) => {
-        dispatch(addComments({ suggestionId: id, comment }))
+    const handleAddComments = (comment) => {
+        dispatch(addComments({ suggestionId: feedback.id, comment }))
     }
 
     const handleUpdate = (payload) => {
         dispatch(updateSuggestion(payload))
-        navigate(`/feedback/${id}`, { replace: true })
+        navigate(`/feedback/${feedback.id}`, { replace: true })
+    }
+
+    const handleCloseModal = () => {
+        navigate(`/feedback/${feedback.id}`, { replace: true })
+    }
+
+    const handleDelete = (id) => {
+        dispatch(deleteSuggestion({ id }))
+        navigate(`/`, { replace: true })
     }
 
     return (
@@ -57,9 +72,13 @@ const DetailPage = () => {
                 <FeedbackModal
                     editingFeedback={feedback}
                     onUpdate={handleUpdate}
-                    onClose={() => navigate(`/feedback/${id}`, { replace: true })}
+                    onClose={handleCloseModal}
+                    onDelete={handleDelete}
                 />
             )}
+
+
+
         </div>
     )
 }
