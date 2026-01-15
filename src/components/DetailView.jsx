@@ -52,7 +52,7 @@ const DetailView = ({ feedback, comments, onBack, onUpvote, onOpenEdit, onAddCom
                         <span className='font-bold text-sm'>{feedback.upvotes}</span>
                     </button>
                     <div className='flex-1'>
-                        <h2 className='font-bold text-gray-800 text-xl mb-2'>Feedback Title</h2>
+                        <h2 className='font-bold text-gray-800 text-xl mb-2'>{feedback.title}</h2>
                         <p className='text-gray-600 mb-3'> {feedback.description}</p>
                         <span className='inline-block bg-blue-50 text-blue-600 px-4 py-2
                         rounded-lg text-sm font-semibold'>
