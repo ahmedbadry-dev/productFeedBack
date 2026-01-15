@@ -60,6 +60,7 @@ const RoadmapView = ({ suggestions, onUpvote, onView, openAdd, onBack }) => {
                                 {
                                     category.items.map(item => (
                                         <div
+                                            key={item.id}
                                             className='bg-white rounded-xl p-6 border-t-4 cursor-pointer
                                                 hover:shadow-lg transition-all'
                                             onClick={() => onView(item)}

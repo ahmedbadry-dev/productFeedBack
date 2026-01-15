@@ -32,13 +32,13 @@ const AddComment = ({ onAdd }) => {
                 placeholder='Type your comment here..'
             />
 
-            <div className='flex justify-between items-center mt-4'>
-                <span className='text-gray-500 text-sm'>
+            <div className='flex flex-col sm:flex-row justify-between items-start sm:items-center mt-2 sm:mt-4'>
+                <span className='text-gray-500 text-sm mb-4 sm:mb-0'>
                     {250 - value.length} Character Left
                 </span>
 
                 <button
-                    className='bg-purple-600 hover:bg-purple-700
+                    className='bg-purple-600 hover:bg-purple-700 w-full sm:w-fit
                     disabled:bg-gray-400 disabled:cursor-not-allowed text-white px-6 py-2
                     rounded-lg font-semibold transition-all'
                     onClick={handlePost}
