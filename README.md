@@ -15,7 +15,7 @@ A modern **Product Feedback Board** built with **React + Vite** — inspired by 
 
 This is the main screen of **ProductFeedBack** where users can browse feedback requests, filter by category, sort by upvotes, and open any feedback item.
 
-![Feedback Board](./public/screenshots/feedback-board.png)
+![Feedback Board](./screenshots/feedback-board.png)
 
 ---
 
