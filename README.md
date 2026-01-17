@@ -13,13 +13,13 @@ A modern **Product Feedback Board** built with **React + Vite** — inspired by 
 
 > ✅ Put your images in: `./screenshots/` then the images below will render automatically in GitHub.
 
-| Page                           | Preview                                                 |
-| ------------------------------ | ------------------------------------------------------- |
-| Feedback Board (Home)          | ![Feedback Board](./screenshots/feedback-board.png)     |
-| Feedback Details + Comments    | ![Feedback Details](./screenshots/feedback-details.png) |
-| Roadmap                        | ![Roadmap](./screenshots/roadmap.png)                   |
-| Create Feedback (Modal)        | ![Create Feedback](./screenshots/create-feedback.png)   |
-| Edit / Delete Feedback (Modal) | ![Edit Feedback](./screenshots/edit-feedback.png)       |
+| Page                           | Preview                                               |
+| ------------------------------ | ----------------------------------------------------- |
+| Feedback Board (Home)          | ![Feedback Board](screenshots/feedback-board.png)     |
+| Feedback Details + Comments    | ![Feedback Details](screenshots/feedback-details.png) |
+| Roadmap                        | ![Roadmap](screenshots/roadmap.png)                   |
+| Create Feedback (Modal)        | ![Create Feedback](screenshots/create-feedback.png)   |
+| Edit / Delete Feedback (Modal) | ![Edit Feedback](screenshots/edit-feedback.png)       |
 
 ---
 
@@ -73,7 +73,9 @@ A modern **Product Feedback Board** built with **React + Vite** — inspired by 
 
 ## 📂 Project Structure
 
+```bash
 productFeedBack/
+
 ├─ public/
 ├─ src/
 │ ├─ components/
@@ -85,6 +87,7 @@ productFeedBack/
 ├─ vite.config.js
 ├─ package.json
 └─ README.md
+```
 
 ---
 
