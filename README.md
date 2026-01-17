@@ -11,15 +11,45 @@ A modern **Product Feedback Board** built with **React + Vite** — inspired by 
 
 ## 📸 Screenshots
 
-> ✅ Put your images in: `./screenshots/` then the images below will render automatically in GitHub.
+### 🏠 Feedback Board (Main View)
 
-| Page                           | Preview                                               |
-| ------------------------------ | ----------------------------------------------------- |
-| Feedback Board (Home)          | ![Feedback Board](screenshots/feedback-board.png)     |
-| Feedback Details + Comments    | ![Feedback Details](screenshots/feedback-details.png) |
-| Roadmap                        | ![Roadmap](screenshots/roadmap.png)                   |
-| Create Feedback (Modal)        | ![Create Feedback](screenshots/create-feedback.png)   |
-| Edit / Delete Feedback (Modal) | ![Edit Feedback](screenshots/edit-feedback.png)       |
+This is the main screen of **ProductFeedBack** where users can browse feedback requests, filter by category, sort by upvotes, and open any feedback item.
+
+![Feedback Board](screenshots/feedback-board.png)
+
+---
+
+### ➕ Create New Feedback (Modal)
+
+A modal form to create a new feedback request by adding a title, selecting category & status, and writing details.
+
+![Create Feedback](screenshots/create-feedback.png)
+
+---
+
+### ✏️ Edit / 🗑️ Delete Feedback (Modal)
+
+Edit an existing feedback request or delete it completely using a clean modal flow.
+
+![Edit Feedback](screenshots/edit-feedback.png)
+
+---
+
+### 💬 Feedback Details + Comments
+
+The details page shows the selected feedback info, existing comments, and allows users to add a new comment with a character limit.
+
+![Feedback Details](screenshots/feedback-details.png)
+
+---
+
+### 🗺️ Roadmap View
+
+A roadmap board that organizes feedback by status: **Planned**, **In-Progress**, and **Live**.
+
+![Roadmap](screenshots/roadmap.png)
+
+---
 
 ---
 
