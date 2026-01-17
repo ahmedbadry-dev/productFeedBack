@@ -101,26 +101,6 @@ A roadmap board that organizes feedback by status: **Planned**, **In-Progress**,
 
 ---
 
-## 📂 Project Structure
-
-```bash
-productFeedBack/
-
-├─ public/
-├─ src/
-│ ├─ components/
-│ ├─ pages/
-│ ├─ assets/
-│ ├─ styles/
-│ └─ main.jsx
-├─ index.html
-├─ vite.config.js
-├─ package.json
-└─ README.md
-```
-
----
-
 ## 🚧 Future Improvements
 
 - 🔗 Connect to real backend API
